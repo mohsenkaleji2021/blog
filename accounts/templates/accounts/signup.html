@@ -1,0 +1,48 @@
+{% extends 'accounts/base.html' %}
+
+
+{% block title %}{{ post.title }}{% endblock %}
+
+
+
+
+
+
+{% block content %}
+
+
+{% if user.is_authenticated %}
+
+<center><h3 style="margin-top: 200px;margin-bottom: 200px;">!شما قبلا ثبت نام کردید</h3></center>
+
+
+{% else %}
+
+    <center style="margin-top: 75px;margin-bottom: 75px;">
+    <h1>ثبت نام</h1>
+        <form action="" method="POST">
+            {{form}}
+            {% csrf_token %}
+            <br><br><br><button id="add-post-btn" type="submit">ثبت نام</button>
+        </form>
+    </center>
+
+{% endif %}
+
+
+{% endblock content %}
+
+
+
+
+{% block footer %}
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark" id="footer">
+        <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; 2021</p><center><p id="copyright"> !تمام حقوق برای این وبسایت محفوظ است </p><hr>
+        <a class="btn btn-warning btn-sm glyphicon glyphicon-eye-open" id="oloino" href="https://t.me/oloino" role="button">((( oloino  ساخته شده توسط )))</a>
+        </div>
+    </footer>
+    
+{% endblock footer %}

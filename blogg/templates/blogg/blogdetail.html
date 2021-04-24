@@ -1,0 +1,78 @@
+{% extends 'blogg/base.html' %}
+
+
+{% block title %}{{ blog.title }}{% endblock %}
+
+
+
+
+
+
+{% block content %}
+
+
+{% if user.is_authenticated %}
+
+<br><br>
+
+<center>
+
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="{{ blog.image.url }}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{blog.title}}</h5>
+    <h5 class="card-title">{{blog.writer}} :نویسنده</h5>
+    <h5 class="card-title">{{blog.date}}</h5><hr>
+    <p class="card-text">{{ blog.content }}</p>
+  </div>
+</div>
+
+</center>
+<center>
+
+  <br>
+  <br>
+
+  {% if user in blog.like.all %}
+      <b><a href="{% url 'postunlike' blog.id %}" style="background: rgb(255, 25, 25);color: black;font-size: large;" class="btn btn-sm glyphicon glyphicon-eye-open">unlike</a>
+  {% else %}
+      <a href="{% url 'postlike' blog.id %}" style="background: rgb(60, 255, 0);color: black;font-size: larger;"  class="btn btn-warning btn-sm glyphicon glyphicon-eye-open">like</a>
+  {% endif %}
+
+</center>
+
+
+
+<br><br><br><br><br><br>
+
+{% else %}
+<center>
+  <h3 style="margin-top: 125px;margin-bottom: 125px;margin-left: 20px;margin-right: 20px;">
+    برای نمایش مطلب <a href="{% url 'accounts:signup' %}">ثبت نام </a>کنید و یا اگر اکانت دارید <a href="{% url 'accounts:login' %}">وارد</a>
+    سایت شوید
+  </h3>
+</center>
+<br><br><br>
+{% endif %}
+
+
+{% endblock content %}
+
+
+
+
+
+
+
+{% block footer %}
+
+<!-- Footer -->
+<footer class="py-5 bg-dark" id="footer">
+  <div class="container">
+  <p class="m-0 text-center text-white">Copyright &copy; 2021</p><center><p id="copyright"> !تمام حقوق برای این وبسایت محفوظ است </p><hr>
+  <a class="btn btn-warning btn-sm glyphicon glyphicon-eye-open" id="oloino" href="https://t.me/oloino" role="button">((( oloino  ساخته شده توسط )))</a>
+  </div>
+</footer>
+<!-- end Footer -->
+
+{% endblock footer %}

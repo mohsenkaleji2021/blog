@@ -1,0 +1,56 @@
+#body-home{
+    background-image: url("../../../media/background/background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+
+#body-detail{
+    background-image: url("../../../media/background/background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;}
+
+
+#body-addpost{
+    background-image: url("../../../media/background/background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+
+#footer{
+    background-image: url("../../../media/background/footer.jpg");
+}
+
+#copyright{
+    color:white;
+}
+
+
+#oloino{
+    margin-top: 10px;
+}
+
+
+#body-post{
+    font-size: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+
+#add-post-btn{
+    font-size: 20px;
+    border-radius: 10px;
+    padding-bottom: 5px;
+    background: black;
+    color: gold;
+}
+
+
+#img-post{
+    margin-top: 500px;
+}

@@ -1,0 +1,46 @@
+{% extends 'accounts/base.html' %}
+
+
+{% block title %}{{ post.title }}{% endblock %}
+
+
+
+
+
+
+{% block content %}
+
+
+{% if user.is_authenticated %}
+<script>window.alert("شما با موفقیت وارد سایت شدید");</script>
+<center><h3 style="margin-top: 200px;margin-bottom: 200px;">!شما با موفقیت وارد سایت شدید</h3></center>
+{% else %}
+
+<center style="margin-top: 100px;margin-bottom: 150px;">
+  <h1>ورود</h1><br><br>
+  <form action="" method="POST">
+      {{form}}
+      {% csrf_token %}
+      <br><br><br><button id="add-post-btn" type="submit">ورود</button>
+  </form>
+</center>
+
+{% endif %}
+
+
+{% endblock content %}
+
+
+
+
+{% block footer %}
+
+    <!-- Footer -->
+<footer class="py-5 bg-dark" id="footer">
+    <div class="container">
+    <p class="m-0 text-center text-white">Copyright &copy; 2021</p><center><p id="copyright"> !تمام حقوق برای این وبسایت محفوظ است </p><hr>
+    <a class="btn btn-warning btn-sm glyphicon glyphicon-eye-open" id="oloino" href="https://t.me/oloino" role="button">((( oloino  ساخته شده توسط )))</a>
+    </div>
+</footer>
+
+{% endblock footer %}

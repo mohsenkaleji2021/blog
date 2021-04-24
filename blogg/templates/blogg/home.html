@@ -1,0 +1,49 @@
+{% extends 'blogg/base.html' %}
+{% block title %}صفحه اصلی{% endblock title %}
+
+
+
+{% block content %}
+<center>
+  <br><br><h1 style="color: white;">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</h1><br><br><hr><hr><hr><br>
+</center>
+
+    
+
+
+<div class="row row-cols-3">
+  {% for post in blogpost %}
+  <div class="col">
+    <div class="card" style="margin-left: 15px;margin-right: 15px;text-align: right;">
+      <img class="card-img-top" src="{{ post.image.url }}" width="500" alt="">
+        <div class="card-body">
+            <h5 style="margin-top:20px">{{ post.title }}</h5><br>
+            <p style="margin-top:20px">{{ post.getsnippet }}</p><br>
+            <a class="btn btn-warning btn-lg glyphicon glyphicon-eye-open" style="border-radius: 20px; " href="{% url 'detail' post.id %}" role="button"> مشاهده مطلب</a><br><hr>
+            <p>{{ post.writer }} :نویسنده</p>
+            <p>{{ post.date }} :تاریخ انتشار</p>
+        </div>  
+    </div>
+  </div><br>
+  {% endfor %}
+</div></div><br>
+
+
+
+<br><br><br><br>
+
+{% endblock content %}
+
+
+
+
+{% block footer %}
+
+<footer class="py-5 bg-dark" id="footer">
+    <div class="container">
+    <p class="m-0 text-center text-white">Copyright &copy; 2021</p><center><p id="copyright"> !تمام حقوق برای این وبسایت محفوظ است </p><hr>
+    <a class="btn btn-warning btn-sm glyphicon glyphicon-eye-open" id="oloino" href="https://t.me/oloino" role="button">((( oloino  ساخته شده توسط )))</a>
+    </div>
+</footer>
+
+{% endblock footer %}

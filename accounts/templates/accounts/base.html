@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{% endblock title %}</title>
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/font/octicons.min.css"></head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'blogg/style.css' %}">
+    
+    <body id="body-home">
+    
+    
+    {% if user.is_authenticated %}
+      <!-- start navbar -->
+    
+      <nav class="navbar navbar-expand-xxl navbar-light bg-dark">
+        <a class="navbar-brand" style="color:gold" href="../../">کالج بلاگ</a>
+        <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <center><p style="color: rgb(0, 132, 255);">{{ user.username }} :نام کاربری شما<span class="sr-only">(current)</span></p></center>
+            </li>
+            <li class="nav-item active">
+              <center><a style="color:gold" class="nav-link" href="../../">صفحه اصلی <span class="sr-only">(current)</span></a></center>
+            </li>
+            <li class="nav-item">
+              <center><a style="color:gold" class="nav-link" href="../../addarticle">افزودن پست</a></center>            {% if user.is_authenticated %}
+                    <center>
+                      <form action="{% url 'accounts:logout' %}" method="POST">
+                        {% csrf_token %}
+                        <button style="color:gold;background:dark;margin-top: 5px;" class="bg-dark" type="submit">logout</button>
+                      </form>
+                    </center>
+                {% endif %}
+            </li>
+        </div>
+      </nav>
+    
+    <!-- end navbar -->
+    
+    {% else %}
+    <!-- start navbar -->
+    
+    <nav class="navbar navbar-expand-xxl navbar-light bg-dark">
+      <a class="navbar-brand" style="color:gold" href="../../">کالج بلاگ</a>
+      <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <center><a style="color:gold" class="nav-link" href="../../">صفحه اصلی <span class="sr-only">(current)</span></a></center>
+          </li>
+          <li class="nav-item">
+            <center><a style="color:gold" class="nav-link" href="../../accounts/login">ورود</a></center>
+            <center><a style="color:gold" class="nav-link" href="../../accounts/signup">ثبت نام</a></center>
+          </li>
+      </div>
+    </nav>
+    
+    <!-- end navbar -->
+    
+    {% endif %}
+    
+    
+
+
+    {% block content %}{% endblock content %}
+
+
+
+    {% block footer %}{% endblock footer %}
+
+
+
+
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
+
